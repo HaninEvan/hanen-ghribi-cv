@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Online CV of Hanen Ghribi - Software Engineer & Full Stack Developer">
+    <meta name="theme-color" content="#2563eb">
+    <title>Hanen Ghribi - CV</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* =========================================
+           🆕 DOWNLOAD BUTTON (added only this block)
+        ========================================= */
+        .download-bar {
+            max-width: 850px;
+            margin: 0 auto 0.8rem;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .btn-download {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.2rem;
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.2s;
+            box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-download:hover {
+            background: var(--primary-light);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+        }
+
+        .btn-download svg {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+        }
+
+        /* =========================================
+           1. Variables & Reset
+        ========================================= */
+        :root {
+            --primary: #2563eb;
+            --primary-light: #3b82f6;
+            --dark: #1e293b;
+            --gray: #64748b;
+            --light-gray: #f1f5f9;
+            --white: #ffffff;
+            --shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+       
+        /* =========================================
+           2. Body & Typography
+        ========================================= */
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--dark);
+            line-height: 1.4;
+            background-color: #f8fafc;
+            padding: 1rem;
+            /* Forces browser to keep background colors when printing */
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+        
+        /* =========================================
+           3. Layout
+        ========================================= */
+        .cv-container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            overflow: visible; /* Changed to visible for print */
+            display: flex;
+            font-size: 13px;
+        }
+        
+        .sidebar {
+            flex: 0 0 240px;
+            background: var(--primary);
+            color: var(--white);
+            padding: 1.2rem;
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 1.2rem;
+        }
+        
+        /* =========================================
+           4. Sidebar Components
+        ========================================= */
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .sidebar a:hover {
+            text-decoration: underline;
+        }
+
+        .profile-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            margin: 0 auto 1rem;
+        }
+
+        .name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.2rem;
+            text-align: center;
+        }
+        
+        .title {
+            font-size: 0.95rem;
+            font-weight: 300;
+            text-align: center;
+            margin-bottom: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .section-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin: 1.2rem 0 0.8rem;
+            position: relative;
+            padding-bottom: 0.4rem;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: var(--white);
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 0.6rem;
+            font-size: 0.9rem;
+        }
+        
+        .contact-icon {
+            min-width: 20px;
+            margin-right: 8px;
+            opacity: 0.8;
+        }
+        
+        /* Skills */
+        .skill-category {
+            margin-bottom: 0.8rem;
+        }
+        
+        .skill-category-title {
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .skills-list {
+            list-style: none;
+        }
+        
+        .skill-item {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 0.3rem 0.7rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+            display: inline-block;
+            width: 100%;
+        }
+
+        /* Certifications */
+        .certification-item {
+            margin-bottom: 0.8rem;
+            font-size: 0.85rem;
+        }
+
+        .certification-title {
+            font-weight: 600;
+        }
+
+        .certification-place,
+        .certification-date {
+            opacity: 0.85;
+        }
+        
+        /* Languages */
+        .languages-list {
+            list-style: none;
+        }
+        
+        .language-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.6rem;
+            font-size: 0.9rem;
+        }
+        
+        .language-name {
+            font-weight: 500;
+        }
+      
+        .language-level {
+            opacity: 0.8;
+            font-size: 0.85rem;
+        }
+        
+        /* =========================================
+           5. Main Content Components
+        ========================================= */
+        .content-section {
+            margin-bottom: 1.2rem;
+        }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.8rem;
+        }
+        
+        .section-header h2 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-left: 0.6rem;
+        }
+        
+        .section-header .icon {
+            width: 26px;
+            height: 26px;
+            background: var(--primary-light);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        /* Timeline Items (Experience, Education, Projects) */
+        .experience-item,
+        .education-item,
+        .project-item {
+            margin-bottom: 1.2rem;
+            position: relative;
+            padding-left: 1rem;
+            break-inside: avoid; /* Prevents cutting in half when printing */
+            page-break-inside: avoid;
+        }
+        
+        .experience-item:last-child,
+        .education-item:last-child,
+        .project-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .experience-item:before,
+        .education-item:before,
+        .project-item:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 6px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--primary);
+        }
+        
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 0.3rem;
+        }
+        
+        .item-title {
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--dark);
+        }
+        
+        .item-subtitle {
+            font-weight: 500;
+            color: var(--primary);
+            margin-bottom: 0.2rem;
+            font-size: 0.95rem;
+        }
+        
+        .item-date {
+            color: var(--gray);
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        
+        .item-description {
+            color: var(--gray);
+            margin-top: 0.4rem;
+            font-size: 0.9rem;
+        }
+        
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 0.8rem;
+            margin-top: 0.4rem;
+        }
+        
+        .project-card {
+            background: var(--light-gray);
+            border-radius: 6px;
+            padding: 0.8rem;
+            break-inside: avoid; /* Prevents cards from breaking across pages */
+            page-break-inside: avoid;
+        }
+        
+        .project-card h4 {
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            color: var(--primary);
+            font-size: 0.95rem;
+        }
+        
+        .project-card p {
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+        
+        /* =========================================
+           6. Links & Utilities
+        ========================================= */
+        .project-demo a {
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .project-demo a:hover {
+            text-decoration: underline;
+        }
+        
+        /* =========================================
+           7. Media Queries
+        ========================================= */
+        @media (max-width: 850px) {
+            .cv-container {
+                flex-direction: column;
+            }
+            .sidebar {
+                flex: auto;
+            }
+        }
+
+        /* =========================================
+           8. CRITICAL PRINT STYLES FOR PDF
+        ========================================= */
+        @media print {
+            /* Force A4 size and remove browser default margins */
+            @page {
+                size: A4 portrait;
+                margin: 0;
+            }
+
+            /* 🆕 Hide the download button in PDF */
+            .download-bar {
+                display: none !important;
+            }
+
+            body {
+                padding: 0;
+                background: white;
+                margin: 0;
+            }
+
+            .cv-container {
+                /* Remove web shadows and borders for clean print */
+                box-shadow: none;
+                border-radius: 0;
+                width: 100%;
+                height: auto;
+                
+                /* MAGIC TRICK: This creates a background color that repeats 
+                   perfectly on page 2, page 3, etc., so the blue sidebar 
+                   never cuts off halfway down the page! */
+                background: white;
+                background-image: linear-gradient(to right, var(--primary) 240px, white 240px);
+            }
+
+            /* Make the actual sidebar background transparent so the container trick works */
+            .sidebar {
+                background: transparent;
+            }
+
+            /* Ensure grid backgrounds print */
+            .project-card {
+                background: var(--light-gray);
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 🆕 Download Button (added only this block) -->
+    <div class="download-bar">
+        <button class="btn-download" onclick="window.print()" title="Save as PDF">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 2l5 5h-5V4zM6 20V4h5v7h7v9H6zm3-7l3 3 3-3h-2v-4h-2v4H9z"/></svg>
+            Download PDF
+        </button>
+    </div>
+
+    <div class="cv-container">
+        
+        <!-- =========================================
+             SIDEBAR
+        ========================================= -->
+        <div class="sidebar">
+            <img 
+                src="https://i.ibb.co/r2t1g6LJ/photo.png" 
+                alt="Hanen Ghribi" 
+                class="profile-photo"
+            >
+
+            <h1 class="name">Hanen Ghribi</h1>
+            <div class="title">
+                Software Engineer | Full Stack Developer<br>
+                React • JavaScript • Java • Firebase • AI
+            </div>
+            
+            <!-- Contact -->
+            <div class="section-title">Contact</div>
+            <div class="contact-item">
+                <span class="contact-icon">📧</span>
+                <span>ghribihanen17@gmail.com</span>
+            </div>
+            <div class="contact-item">
+                <span class="contact-icon">📱</span>
+                <span>+216 58 668 613</span>
+            </div>
+            <div class="contact-item">
+                <span class="contact-icon">📍</span>
+                <span>Rue Salah Edine Alayoubi, Gafsa, Tunisia</span>
+            </div>
+            <div class="contact-item">
+                <span class="contact-icon">🔗</span>
+                <span>
+                    <a href="https://www.linkedin.com/in/hanen-ghribi" target="_blank" rel="noopener noreferrer">
+                        linkedin.com/in/hanen-ghribi
+                    </a>
+                </span>
+            </div>
+            <div class="contact-item">
+                <span class="contact-icon">🐙 </span>
+                
+                <span>
+                    <a href="https://github.com/HaninEvan" target="_blank" rel="noopener noreferrer">
+                        github.com/HaninEvan
+                    </a>
+                    <a href=" https://github.com/hanene17" target="_blank" rel="noopener noreferrer">
+                        github.com/hanene17
+                    </a>
+            
+                </span>
+                
+         </div>
+            <div class="contact-item">
+                <span class="contact-icon">🏆</span>
+                <span>
+                    <a href="https://devpost.com/haninEvan" target="_blank" rel="noopener noreferrer">
+                        devpost.com/haninEvan
+                    </a>
+                </span>
+            </div>
+            <div class="contact-item">
+                <span class="contact-icon">▶️</span>
+                <span>
+                    <a href="https://www.youtube.com/channel/UCJPrpCjb4M8a79FQbS_MKVQ" target="_blank" rel="noopener noreferrer">
+                        YouTube Project Demos
+                    </a>
+                </span>
+            </div>
+            
+            <!-- Technical Skills -->
+            <div class="section-title">Technical Skills</div>
+            
+            <div class="skill-category">
+                <div class="skill-category-title">Languages</div>
+                <ul class="skills-list">
+                    <li class="skill-item">JavaScript (ES6+)</li>
+                    <li class="skill-item">TypeScript</li>
+                    <li class="skill-item">Java</li>
+                    <li class="skill-item">SQL</li>
+                </ul>
+            </div>
+            
+            <div class="skill-category">
+                <div class="skill-category-title">Frontend</div>
+                <ul class="skills-list">
+                    <li class="skill-item">React, MUI</li>
+                    <li class="skill-item">React Router, Redux</li>
+                    <li class="skill-item">Axios</li>
+                </ul>
+            </div>
+            
+            <div class="skill-category">
+                <div class="skill-category-title">Backend & Cloud</div>
+                <ul class="skills-list">
+                    <li class="skill-item">Firebase Cloud Functions</li>
+                    <li class="skill-item">Firebase Auth, Firestore</li>
+                    <li class="skill-item">Gemini API</li>
+                </ul>
+            </div>
+            
+            <div class="skill-category">
+                <div class="skill-category-title">Tools</div>
+                <ul class="skills-list">
+                    <li class="skill-item">Git & GitHub</li>
+                    <li class="skill-item">Node.js, Docker</li>
+                    <li class="skill-item">Vite, npm, ESLint</li>
+                    <li class="skill-item">Chrome Extension APIs</li>
+                </ul>
+            </div>
+
+            <!-- Certifications -->
+            <div class="section-title">Certifications</div>
+            <div class="certification-item">
+                <div class="certification-title">SQL for Data Analysis and Business Insights Specialization</div>
+            </div>
+            <div class="certification-item">
+                <div class="certification-title">Attestation de vacation - University Teaching</div>
+                <div class="certification-place">ISET Gafsa</div>
+            </div>
+            <div class="certification-item">
+                <div class="certification-title">2CN</div>
+                <div class="certification-date">2023–2024</div>
+            </div>
+            <div class="certification-item">
+                <div class="certification-title">Advanced React Application</div>
+                <div class="certification-date">2024–2025</div>
+            </div>
+            
+            <!-- Languages -->
+            <div class="section-title">Languages</div>
+            <ul class="languages-list">
+                <li class="language-item">
+                    <span class="language-name">Arabic</span>
+                    <span class="language-level">Native</span>
+                </li>
+                <li class="language-item">
+                    <span class="language-name">French</span>
+                    <span class="language-level">Fluent</span>
+                </li>
+                <li class="language-item">
+                    <span class="language-name">English</span>
+                    <span class="language-level">Professional</span>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- =========================================
+             MAIN CONTENT
+        ========================================= -->
+        <div class="main-content">
+            
+            <!-- Professional Summary -->
+            <div class="content-section">
+                <div class="section-header">
+                    <div class="icon">✨</div>
+                    <h2>Profile</h2>
+                </div>
+                <p>
+                    Software Engineer and Full Stack Developer specializing in React, Javascript, Firebase, Java, and AI-powered web applications. Passionate about building scalable software, Chrome Extensions, and intelligent applications using Google's Gemini API while following modern software engineering practices.
+                </p>
+            </div>
+            
+            <!-- Projects -->
+            <div class="content-section">
+                <div class="section-header">
+                    <div class="icon">🚀</div>
+                    <h2>Projects</h2>
+                </div>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <h4>Cognito DevTools</h4>
+                        <p>Chrome Extension • React • Firebase • Gemini API • AI Developer Tools</p>
+                    </div>
+                    <div class="project-card">
+                        <h4>AI Task Manager</h4>
+                        <p>React • Firebase • Gemini API • AI Assistant</p>
+                    </div>
+                    <div class="project-card">
+                        <h4>Education Online</h4>
+                        <p>React • Firebase • Responsive Web Platform</p>
+                    </div>
+                    <div class="project-card">
+                        <h4>Advanced React Application</h4>
+                        <p>React • TypeScript • JavaScript • Hooks • Redux • Material UI</p>
+                    </div>
+                </div>
+                <p class="project-demo" style="margin-top: 0.8rem;">
+                    🎥 Watch project demonstrations on 
+                    <a href="https://www.youtube.com/channel/UCJPrpCjb4M8a79FQbS_MKVQ" target="_blank" rel="noopener noreferrer">
+                        YouTube
+                    </a>
+                </p>
+            </div>
+            
+            <!-- Professional Experience -->
+            <div class="content-section">
+                <div class="section-header">
+                    <div class="icon">💼</div>
+                    <h2>Experience</h2>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="item-header">
+                        <div class="item-title">Software Developer Intern</div>
+                        <div class="item-date">Feb-May 2017</div>
+                    </div>
+                    <div class="item-subtitle">Smart Technology, Gafsa</div>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="item-header">
+                        <div class="item-title">PFE Intern - Game Development</div>
+                        <div class="item-date">2017</div>
+                    </div>
+                    <div class="item-subtitle">FRDCM, Gafsa</div>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="item-header">
+                        <div class="item-title">Java Development Intern</div>
+                        <div class="item-date">Jul-Aug 2016</div>
+                    </div>
+                    <div class="item-subtitle">CPG, Gafsa</div>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="item-header">
+                        <div class="item-title">Java Application Developer</div>
+                        <div class="item-date">Jul-Aug 2015</div>
+                    </div>
+                    <div class="item-subtitle">CPG, Gafsa</div>
+                </div>
+            </div>
+            
+            <!-- Education -->
+            <div class="content-section">
+                <div class="section-header">
+                    <div class="icon">🎓</div>
+                    <h2>Education</h2>
+                </div>
+                
+                <div class="education-item">
+                    <div class="item-header">
+                        <div class="item-title">Diplôme d'Ingénieur en Génie Informatique</div>
+                        <div class="item-date">2014-2017</div>
+                    </div>
+                    <div class="item-subtitle">ESIP, Gafsa</div>
+                </div>
+                
+                <div class="education-item">
+                    <div class="item-header">
+                        <div class="item-title">Formation Administrateur Linux LPIC-1</div>
+                        <div class="item-date">2018-2021</div>
+                    </div>
+                    <div class="item-subtitle">ISSAT, Gafsa</div>
+                </div>
+                
+                <div class="education-item">
+                    <div class="item-header">
+                        <div class="item-title">Licence Appliquée en Physique</div>
+                        <div class="item-date">2007-2010</div>
+                    </div>
+                    <div class="item-subtitle">Faculté des Sciences, Gafsa</div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>
