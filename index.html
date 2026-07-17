@@ -12,9 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
-        /* =========================================
-           🆕 DOWNLOAD BUTTON (added only this block)
-        ========================================= */
+   
         .download-bar {
             max-width: 850px;
             margin: 0 auto 0.8rem;
@@ -282,7 +280,7 @@
             margin-bottom: 1.2rem;
             position: relative;
             padding-left: 1rem;
-            break-inside: avoid; /* Prevents cutting in half when printing */
+            break-inside: avoid; 
             page-break-inside: avoid;
         }
         
@@ -349,7 +347,7 @@
             background: var(--light-gray);
             border-radius: 6px;
             padding: 0.8rem;
-            break-inside: avoid; /* Prevents cards from breaking across pages */
+            break-inside: avoid; 
             page-break-inside: avoid;
         }
         
@@ -390,58 +388,85 @@
             }
         }
 
-        /* =========================================
+                   /* =========================================
            8. CRITICAL PRINT STYLES FOR PDF
         ========================================= */
         @media print {
-            /* Force A4 size and remove browser default margins */
             @page {
                 size: A4 portrait;
                 margin: 0;
             }
 
-            /* 🆕 Hide the download button in PDF */
             .download-bar {
                 display: none !important;
             }
 
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
             body {
                 padding: 0;
-                background: white;
                 margin: 0;
+                background: white !important;
+                /* This gradient fakes the blue sidebar on Page 2 */
+                background-image: linear-gradient(to right, #2563eb 260px, white 260px) !important;
             }
 
             .cv-container {
-                /* Remove web shadows and borders for clean print */
                 box-shadow: none;
                 border-radius: 0;
                 width: 100%;
-                height: auto;
-                
-                /* MAGIC TRICK: This creates a background color that repeats 
-                   perfectly on page 2, page 3, etc., so the blue sidebar 
-                   never cuts off halfway down the page! */
-                background: white;
-                background-image: linear-gradient(to right, var(--primary) 240px, white 240px);
+                max-width: 100%;
+                display: block !important; 
             }
 
-            /* Make the actual sidebar background transparent so the container trick works */
             .sidebar {
-                background: transparent;
+                float: left !important;
+                width: 260px !important;
+                background: #2563eb !important;
+                font-size: 10px !important; 
+                padding: 10px !important;
+                margin: 0 !important;
+                line-height: 1.2 !important;
             }
 
-            /* Ensure grid backgrounds print */
+            .sidebar .section-title {
+                margin: 8px 0 4px !important;
+                font-size: 10px !important;
+            }
+            .sidebar .contact-item {
+                margin-bottom: 2px !important;
+            }
+            .sidebar .skill-category {
+                margin-bottom: 4px !important;
+            }
+            .sidebar .certification-item {
+                margin-bottom: 2px !important;
+            }
+            .sidebar .language-item {
+                margin-bottom: 2px !important;
+            }
+            .sidebar .skill-item {
+                margin-bottom: 2px !important;
+                padding: 1px 6px !important;
+            }
+
+            .main-content {
+                margin-left: 260px !important;
+                padding: 15px !important;
+                font-size: 13px !important;
+            }
+
             .project-card {
-                background: var(--light-gray);
-                -webkit-print-color-adjust: exact !important;
-                print-color-adjust: exact !important;
+                background: #f1f5f9 !important;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- 🆕 Download Button (added only this block) -->
     <div class="download-bar">
         <button class="btn-download" onclick="window.print()" title="Save as PDF">
             <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 2l5 5h-5V4zM6 20V4h5v7h7v9H6zm3-7l3 3 3-3h-2v-4h-2v4H9z"/></svg>
